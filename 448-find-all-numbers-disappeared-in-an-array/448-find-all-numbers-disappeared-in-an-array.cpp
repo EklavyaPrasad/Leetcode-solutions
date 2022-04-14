@@ -1,25 +1,12 @@
 class Solution {
 public:
     vector<int> findDisappearedNumbers(vector<int>& nums) {
-        vector<int> ans;
-        map<int,int> Map;
         
-        for(int i=1;i<=nums.size();i++){
-            Map[i];   
-        }
+        unordered_set<int> s(begin(nums), end(nums));   
+        vector<int> ans(size(nums) - size(s));
         
-        for(auto i: nums){
-            auto it= Map.find(i);
-            it->second+=1;
-        }
-        
-        
-        
-        map<int,int> :: iterator i;
-        for(i=Map.begin();i!=Map.end();i++){
-            cout<<i->first<<"->"<<i->second<<endl;
-            if(i->second==0) ans.push_back(i->first);
-        }
+        for(int i = 1, j = 0; i <= size(nums); i++)  
+            if(!s.count(i)) ans[j++] = i;        
         
         return ans;
     }
