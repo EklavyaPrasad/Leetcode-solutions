@@ -14,10 +14,6 @@ class Solution {
         Comparator<Pair> comp1 = new Comp1();
         Collections.sort(l,comp1);
         
-        // for(Pair p:l){
-        //     System.out.println(p.key+" "+p.val);
-        // }
-        
         int ans[]=new int[nums.length];
         int ind=0;
         
