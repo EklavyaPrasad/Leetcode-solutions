@@ -1,14 +1,16 @@
 class Solution {
     public int majorityElement(int[] nums) {
-        HashMap<Integer,Integer> hs=new HashMap<>();
-        for(Integer it:nums){
-            if(hs.containsKey(it)) hs.put(it,hs.get(it)+1);
-            else hs.put(it,1);
-            
+        int n=nums.length/2;
+        int majority=0,majority_count=0;
+        
+        for(Integer it: nums){
+            if(majority_count==0)
+                majority=it;
+            if(it==majority)
+                majority_count+=1;
+            else 
+                majority_count-=1;
         }
-        for (var entry : hs.entrySet()) {
-           if(entry.getValue()>nums.length/2) return entry.getKey();
-        }
-        return 0;
+        return majority;
     }
 }
