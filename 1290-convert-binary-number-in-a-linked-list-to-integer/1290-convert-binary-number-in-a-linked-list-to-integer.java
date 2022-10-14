@@ -10,12 +10,12 @@
  */
 class Solution {
     public int getDecimalValue(ListNode head) {
-        String binary="";
+        int ans=0;
         while(head!=null){
-            binary+=head.val;
+            ans*=2;
+            ans+=head.val;
             head=head.next;
         }
-        int decimal = Integer.parseInt(binary, 2);
-        return decimal;
+        return ans;
     }
 }
